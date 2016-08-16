@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Cadeia</title>
+    <%= csrf_meta_tags %>
+
+    <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
+    <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
+  </head>
+
+  <body>
+    <ul>
+      <li><%= link_to 'Prisões', prisons_path %></li>
+      <li><%= link_to 'Criminosos', criminals_path %></li>
+      <li><%= link_to 'Sentenças', sentences_path %></li>
+    </ul>
+    <%= yield %>
+  </body>
+</html>

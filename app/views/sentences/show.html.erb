@@ -1,0 +1,17 @@
+<p id="notice"><%= notice %></p>
+
+<h1>Sentença - <%= @sentence.id %>		</h1>
+
+<p>
+  <strong>Criminoso:</strong>
+  <%= @sentence.criminal.name %>
+</p>
+
+<p>
+  <strong>Prisão:</strong>
+  <%= @sentence.prison.name %>
+</p>
+
+
+<%= link_to 'Edit', edit_sentence_path(@sentence) %> |
+<%= link_to 'Back', sentences_path %>

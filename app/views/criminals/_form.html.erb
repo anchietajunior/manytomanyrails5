@@ -1,0 +1,30 @@
+<%= form_for(criminal) do |f| %>
+  <% if criminal.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(criminal.errors.count, "error") %> prohibited this criminal from being saved:</h2>
+
+      <ul>
+      <% criminal.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= f.label :name %>
+    <%= f.text_field :name %>
+  </div>
+
+  <div class="field">
+    <%= hidden_field_tag "criminal[prison_ids][]", nil %>
+    <% Prison.all.each do |prison| %>
+      <%= check_box_tag "criminal[prison_ids][]", prison.id, @criminal.prison_ids.include?(prison.id), id: dom_id(prison) %>
+      <%= label_tag dom_id(prison), prison.name %><br>
+    <% end %>
+  </div>
+
+<div class="actions">
+    <%= f.submit %>
+  </div>
+<% end %>

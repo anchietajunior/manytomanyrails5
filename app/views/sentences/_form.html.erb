@@ -1,0 +1,27 @@
+<%= form_for(sentence) do |f| %>
+  <% if sentence.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(sentence.errors.count, "error") %> prohibited this criminal from being saved:</h2>
+
+      <ul>
+      <% sentence.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= f.label :name %>
+    <%= f.collection_select :criminal_id, Criminal.all, :id, :name, {prompt: "Selecione um criminoso"} %>
+  </div>
+
+  <div class="field">
+    <%= f.label :name %>
+    <%= f.collection_select :prison_id, Prison.all, :id, :name, {prompt: "Selecione uma prisão"} %>
+  </div>
+
+<div class="actions">
+    <%= f.submit %>
+  </div>
+<% end %>
